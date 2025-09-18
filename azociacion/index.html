@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Asociación deportiva</title>
+    <script src="imc.js"></script>
+    <script src="fcm.js"></script>
+    <script src="categoria.js"></script>
+    <script src="horarios.js"></script>
+  </head>
+  <body>
+    <h1>Asociación deportiva</h1>
+     <section>
+        <table border="1px" >
+          <thead>
+            <tr>
+              <th colspan="2">Datos personales</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Calculadora de IMC</td>
+              <td><button  onclick="calcular()">Índice de Masa Corporal</button></td>
+            </tr>
+            <tr>
+              <td>Calculadora de FCM</td>
+              <td><button onclick="fcm()">Frecuencia Cardíaca Máxima</button></td>
+            </tr>
+            <tr>
+              <td>Calculadora de categoría</td>
+              <td><button onclick="categoria()">Categoría</button></td>
+            </tr>
+            <tr>
+              <td>Horario de la asociación</td>
+              <td><button onclick="horarioMañana()">Horario</button></td>
+            </tr>
+           
+          </tbody>
+        </table>
+        <p id="resultado"></p>
+        <p id="fcm"></p>
+        <p id="edad"></p>
+        
+  </body>
+</html>
