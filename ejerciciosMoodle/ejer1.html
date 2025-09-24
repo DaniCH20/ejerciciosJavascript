@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Ejercicio 1</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Bienvenido al Ejercicio 1</h1>
     <!-- ## Ejercicio 1: Manipulación de Objetos Nativos - Array y Math
 Crea una página web que genere un array de 10 números aleatorios entre 1 y 100 utilizando el
  objeto `Math`. Luego, muestra en la página el array ordenado de mayor a menor y calcula el promedio de los números. -->
     <p></p>
     <script>
-    let arr=new Array
-    let random
-    let total=0
-    for(let i=0;i<10;i++){
-        random=Math.floor(Math.random()*100)
-        arr.push(random)
-        total+=random
-    }
-    document.querySelector("p").innerHTML=`Array: [${arr}]<br> Suma: ${total}<br> Media: ${total/arr.length}`
+      let arr = new Array();
+      let random;
+      let total = 0;
+      for (let i = 0; i < 10; i++) {
+        random = Math.floor(Math.random() * 100);
+        arr.push(random);
+        total += random;
+      }
+      document.querySelector(
+        "p"
+      ).innerHTML = `Array: [${arr}]<br> Suma: ${total}<br> Media: ${
+        total / arr.length
+      }`;
     </script>
     <!-- *Tarea para el estudiante**: Modifica el código para que los números aleatorios estén 
      entre 50 y 150, y muestra también el número mayor y el menor. -->
     <p id="p"></p>
     <script>
-        document.getElementById("p").innerHTML=`numero maximo: [${Math.max(arr)}]<br> Suma: ${total}<br> Media: ${total/arr.length}`
-
+      let array2 = new Array();
+      let newTotal = 0;
+      for (let i = 0; i < 10; i++) {
+        random = Math.floor(Math.random() * (150 -50 ) + 50);
+        array2.push(random);
+        newTotal += random;
+      }
+      array2.sort((a, b) => b - a);
+      document.getElementById(
+        "p"
+      ).innerHTML = `Array: [${array2}]<br> Suma: ${newTotal}<br> Media: ${
+        newTotal / arr.length
+      }`;
+      document.write(
+        `Mayor: ${array2[0]}<br> Menor: ${array2[array2.length - 1]}`
+      );
     </script>
-
-</body>
+  </body>
 </html>

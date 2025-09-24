@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <h1>Ejercicio 4</h1>
+    <p>Objetos del Navegador y Temporizadores - document y setTimeout
+Crea una página con un campo de texto y un botón. Cada vez que se pulse el botón, después de 2 segundos (`setTimeout`),
+ toma el valor del campo de texto usando el objeto `document`, conviértelo a mayúsculas utilizando el objeto nativo `String` y 
+ muéstralo en un párrafo.
+</p>
+<script>
+    function convertirMayus(){
+        
+        let texto =document.getElementById("inputText")
+        let mayus=texto.value.toUpperCase()
+        let parrafo=document.createElement("p")
+        parrafo.textContent=mayus
+        document.body.appendChild(parrafo)
+        setTimeout(2000)
+
+    }
+</script>
+<textarea id="inputText" placeholder="Escribe algo aquí"></textarea>
+<button id="convertButton">Convertir a mayúsculas</button>
+
+</body>
+</html

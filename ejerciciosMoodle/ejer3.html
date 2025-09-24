@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 3</title>
+  </head>
+  <body>
+    <h1>Ejercicio 3</h1>
+    <p>
+      Temporizadores - setInterval Crea un reloj digital que se actualice cada
+      segundo utilizando `setInterval`. Muestra la hora actual en formato
+      HH:MM:SS.
+    </p>
+    <script>
+      let detener = false;
+      function actualizarReloj() {
+        const ahora = new Date();
+        const horas = String(ahora.getHours()).padStart(2, "0");
+        const minutos = String(ahora.getMinutes()).padStart(2, "0");
+        const segundos = String(ahora.getSeconds()).padStart(2, "0");
+        const horaActual = `${horas}:${minutos}:${segundos}`;
+        document.getElementById("reloj").textContent = horaActual;
+        detener = false;
+      }
+      const relojElemento = document.createElement("table");
+      relojElemento.id = "reloj";
+      relojElemento.style.fontSize = "2em";
+      relojElemento.style.fontFamily = "monospace";
+      relojElemento.style.marginTop = "20px";
+      relojElemento.style.border = "1px solid black";
+      document.body.appendChild(relojElemento);
+
+      do {
+        actualizarReloj();
+        var actualizarReloj = setInterval(actualizarReloj, 1000);
+      } while (detener);
+
+      function detenerReloj() {
+        clearInterval(actualizarReloj);
+        detener = true;
+      }
+    </script>
+    <!-- Añade un botón para detener el reloj usando `clearInterval`. -->
+    <button onclick="detenerReloj()">Detener</button>
+    <button onclick="actualizarReloj()">Iniciar</button>
+  </body>
+</html>

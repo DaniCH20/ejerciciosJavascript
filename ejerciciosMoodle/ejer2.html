@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio 2</title>
+  </head>
+  <body>
+    <h1>Ejercicio 2</h1>
+    <p>
+      Objetos del Navegador - window y location Crea una página web que muestre
+      información sobre la URL actual utilizando el objeto `location`. Incluye
+      un botón que redirija a una página externa (por ejemplo,
+      "https://www.example.com") tras confirmar con el usuario usando
+      `window.confirm`.
+    </p>
+    <script>
+      document.write(
+        `URL: ${location.href}<br> Protocolo: ${location.protocol}<br> Host: ${location.host}<br> Nombre del host: ${location.hostname}<br> Puerto: ${location.port}<br> Pathname: ${location.pathname}<br> Search: ${location.search}<br> Hash: ${location.hash}<br>`
+      );
+      function irA() {
+        if (window.confirm("¿Quieres ir a otra página?")) {
+          location.href = "https://www.example.com";
+        } else {
+          alert("Has decidido quedarte");
+        }
+      }
+    </script>
+    <button onclick="irA()">Ir a otra página</button>
+    <!--Añade un botón que permita recargar la página actual usando `location.reload()`.-->
+    <button onclick="location.reload()">Recargar página</button>
+  </body>
+</html>
