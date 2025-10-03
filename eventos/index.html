@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos en JavaScript</title>
+</head>
+<body>
+    <h1>Ejemplo de Eventos en JavaScript</h1>
+    <form id="miFormulario" onsubmit="return detener()">
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario" onblur="comprobar()">
+        <label for="Password">Password:</label>
+        <input type="text" id="Password" name="Password" onfocus="this.value=''" onblur="password()">
+       <input type="submit" value="Enviar" id="btnEnviar">
+        
+    </form>
+    <script>
+        
+        let alertaTimeout;
+
+       
+        window.onload = function() {
+            alertaTimeout = setTimeout(function() {
+                alert("Corre a colocar tu password");
+            }, 10000);
+        };
+
+        function comprobar() {
+            var usuario = document.getElementById('usuario').value;
+            if (usuario.length>=7 && usuario.length<=15) {
+               console.log('El usuario es correcto');
+            }else{
+                 alert('El Tiene que estar entre 7 y 15 caracteres');
+                 document.getElementById('usuario').value='';
+            }
+        }
+        function password(){
+            var password = document.getElementById('Password').value;
+            if ( /[a-z]/i.test(texto) && /[0-9]/.test(texto) ) {
+               console.log('El password es correcto');
+            }else{
+                 alert('El password tiene que tener al menos una letra y un número');
+                 document.getElementById('Password').value='';
+            }
+        }
+        function detener() {
+           
+            clearTimeout(alertaTimeout);
+            alert("Formulario enviado (simulado).");
+            return false;
+        }
+       
+       
+
+    </script>
+
+</body>
+</html>
