@@ -49,6 +49,11 @@ export class usuario {
   toHtml() {
     return `<ul><li>Nombre: ${this.nombre}</li><li>Apellido: ${this.apellido}</li><li>DNI: ${this.dni}</li><li>Nacimiento: ${this.nacimiento}</li><li>Provincia: ${this.provincia}</li></ul>`;
   }
+  getEdad() {
+    var fechaActual = new Date();
+    var anioActual = fechaActual.getFullYear();
+    return anioActual - this.nacimiento;
+  }
 }
 var usuario1 = new usuario("Juan", "Andres", 12345678, 1990, "Buenos Aires");
 var usuario2 = new usuario("Maria", "Gomez", 87654321, 1985, "Cordoba");
@@ -57,26 +62,26 @@ var usuario4 = new usuario("Ana", "Martinez", 44332211, 1995, "Mendoza");
 console.log(usuario1.getLogin());
 console.log(usuario1.toString());
 document.body.innerHTML +=
-  "DNI:" + usuario1.getDni() + "<br>" + "Login:" + usuario1.getLogin() + "<br>";
+  "DNI:" + usuario1.getDni() + "<br>" + "Login:" + usuario1.getLogin() + "<br>"+"Edad: " + usuario1.getEdad() + "<br>";
 document.body.innerHTML += usuario1.toHtml();
 
 console.log(usuario2.getLogin());
 console.log(usuario2.toString());
 document.body.innerHTML +=
-  "DNI:" + usuario2.getDni() + "<br>" + "Login:" + usuario2.getLogin() + "<br>";
+  "DNI:" + usuario2.getDni() + "<br>" + "Login:" + usuario2.getLogin() + "<br>"+"Edad: " + usuario2.getEdad() + "<br>";
 
 document.body.innerHTML += usuario2.toHtml();
 
 console.log(usuario3.getLogin());
 console.log(usuario3.toString());
 document.body.innerHTML +=
-  "DNI:" + usuario3.getDni() + "<br>" + "Login:" + usuario3.getLogin() + "<br>";
+  "DNI:" + usuario3.getDni() + "<br>" + "Login:" + usuario3.getLogin() + "<br>" +"Edad: " + usuario3.getEdad() + "<br>";
 
 document.body.innerHTML += usuario3.toHtml();
 
 console.log(usuario4.getLogin());
 console.log(usuario4.toString());
 document.body.innerHTML +=
-  "DNI:" + usuario4.getDni() + "<br>" + "Login:" + usuario4.getLogin() + "<br>";
+  "DNI:" + usuario4.getDni() + "<br>" + "Login:" + usuario4.getLogin() + "<br>"+"Edad: " + usuario4.getEdad() + "<br>";
 
 document.body.innerHTML += usuario4.toHtml();
