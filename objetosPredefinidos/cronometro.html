@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cronometro</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="crono.js"></script>
+  </head>
+
+  <body>
+    <p id="Horas">00</p>
+    <p id="Minutos">:00</p>
+    <p id="Segundos">:00</p>
+    <p id="Centesimas">:00</p>
+    <br />
+    <button id="inicio" onclick="inicio()">Iniciar</button>
+    <button id="parar" onclick="parar()">Pausar</button>
+    <button id="continuar" onclick="inicio()">Continuar</button>
+    <button id="reinicio" onclick="reinicio()">Reiniciar</button>
+    <button id="imprimir" onclick="imprimir()">Imprimir</button>
+
+    <p id="tiempos"></p>
+  </body>
+</html>
