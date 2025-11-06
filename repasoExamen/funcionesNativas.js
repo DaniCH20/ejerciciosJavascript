@@ -60,3 +60,43 @@
 | `innerHTML` / `textContent`                 | Cambia contenido                             | `div.textContent = "Hola"`           |
 
 */
+/*
+let regex = /^[A-Z][a-z]+$/;
+console.log(regex.test("Pepe")); // true
+console.log(regex.test("pepe")); // false
+
+let texto = "El número es 12345";
+let numeros = texto.match(/\d+/);
+console.log(numeros[0]); // "12345"
+
+let texto = "Hola 123 mundo 456";
+let sinNumeros = texto.replace(/\d+/g, "");
+console.log(sinNumeros); // "Hola  mundo "
+
+Validar email
+let emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/; Validar email
+console.log(emailRegex.test("usuario@mail.com")); // true
+
+b) Validar un password fuerte
+
+Al menos una mayúscula
+
+Una minúscula
+
+Un número
+
+Entre 7 y 15 caracteres
+
+let passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{7,15}$/;
+console.log(passRegex.test("Hola123")); // true
+console.log(passRegex.test("hola123")); // false
+
+solo letras y espacios
+let nombreRegex = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/;
+console.log(nombreRegex.test("José Pérez")); // true
+console.log(nombreRegex.test("José123")); // false
+ solo numeros : let soloNumeros = /^\d+$/;
+console.log(soloNumeros.test("12345")); // true
+console.log(soloNumeros.test("12a45")); // false
+
+*/

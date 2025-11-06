@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ejemplo 1 - Interacción con elementos</title>
+  <style>
+    .preview { margin-top: 1rem; padding: .75rem; border: 1px solid #ccc; }
+    label { display:block; margin-top:.5rem; }
+    fieldset { margin-top:.75rem; }
+    .topnav { margin-bottom: 1rem; }
+    .topnav a { margin-right: .75rem; }
+  </style>
+</head>
+<body>
+  <!-- Barra de navegación para saltar entre ejemplos -->
+  <nav class="topnav">
+    <a href="./index.html">Volver al índice</a>
+    <a href="./ejemplo2.html">Ir al Ejemplo 2</a>
+    <a href="./ejemplo3.html">Ir al Ejemplo 3</a>
+  </nav>
+
+  <h1>Interacción con inputs, checkboxes, radios, select y textarea</h1>
+  <!--
+    Objetivo: practicar cómo leer y escribir valores de distintos tipos de
+    elementos de formulario y mostrar una vista previa en vivo.
+  -->
+  <form id="perfilForm">
+    <label>Nombre:
+      <input type="text" id="nombre" placeholder="Ana Pérez" />
+    </label>
+
+    <fieldset>
+      <legend>Género (radio)</legend>
+      <label><input type="radio" name="genero" value="Femenino" checked /> Femenino</label>
+      <label><input type="radio" name="genero" value="Masculino" /> Masculino</label>
+      <label><input type="radio" name="genero" value="No binario" /> No binario</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Intereses (checkbox)</legend>
+      <label><input type="checkbox" name="intereses" value="Deporte" /> Deporte</label>
+      <label><input type="checkbox" name="intereses" value="Música" /> Música</label>
+      <label><input type="checkbox" name="intereses" value="Tecnología" /> Tecnología</label>
+    </fieldset>
+
+    <label>País (select):
+      <select id="pais">
+        <option value="">Selecciona...</option>
+        <option>España</option>
+        <option>México</option>
+        <option>Argentina</option>
+      </select>
+    </label>
+
+    <label>Biografía:
+      <textarea id="bio" rows="3" placeholder="Cuéntame sobre ti..."></textarea>
+    </label>
+
+    <button type="button" id="btnRellenar">Rellenar demo</button>
+  </form>
+
+  <!-- Contenedor donde se imprime la vista previa reunida desde los valores del formulario -->
+  <div class="preview" id="preview"></div>
+
+  <!-- Archivo JS con toda la lógica de lectura y vista previa -->
+  <script src="./ejemplo1.js"></script>
+</body>
+</html>
