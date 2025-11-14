@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <title>Factura</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   </head>
+  <body>
+    <h1>factura<h1>
+      <form onClick="">
+        <label>Codigo de producto:</label>
+          <input id="codigo" ></input>
+      <br>
+       <label>Cantidad:</label>
+          <input id="cantidad" ></input>
+      <br><button type="submit">Enviar</button>
+      </form>
+      <table class="table table-hover table-resposive">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Cantidad</th>
+                            <th>Producto</th>
+                            <th>PrecioUnitario</th>
+                            <th>Precio Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultado">
+						<tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>d</td>
+                            <td class='precioTotal'>30</td> 										
+                        </tr>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>d</td>
+                            <td class='precioTotal'>50</td> 										
+                        </tr>
+						<tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>d</td>
+                            <td class='precioTotal'>100</td> 										
+                        </tr>	
+                        <tr>
+                            <table class="table table-hover table-resposive">
+                            <tr id="subtotal">
+                                <td>Subtotal :</td>
+                            </tr>
+                            <tr id="iva">
+                                <td>Iva (18%):</td>
+                                
+                            </tr>
+                            <tr id="total">
+                                <td>TOTAL :</td>
+                            </tr>
+                        </table>
+                        </tr>
+                    </tbody>
+                </table>
+		
+    </body>
+</html>
+<script>
+            let precios=document.getElementsByClassName('precioTotal');
+        let subtotal=0;
+        for (let i = 0; i < precios.length; i++) {
+        console.log(precios[i].textContent); 
+        subtotal+=Number(precios[i].textContent);
+        }
+            
+        let iva=subtotal*0.18;
+        
+        let thsub=document.getElementById("subtotal");
+            let thiva=document.getElementById("iva");
+            let thtotal=document.getElementById("total");
+        var celdaSubtotal = document.createElement("td");
+        celdaSubtotal=document.createTextNode(subtotal);
+        var celdaIva = document.createElement("td");
+        celdaIva=document.createTextNode(iva);
+        var celdaTotal = document.createElement("td");
+        celdaTotal=document.createTextNode(iva+subtotal);
+    
+        thsub.appendChild(celdaSubtotal);
+        thiva.appendChild(celdaIva);
+        thtotal.appendChild(celdaTotal);
+    </script>
