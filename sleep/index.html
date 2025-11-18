@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Sueños</title>
+</head>
+<body>
+  <h1>Sueños</h1>
+  <ul id="posts-list"></ul>
+
+  <script>
+    const postsList = document.getElementById('posts-list');
+
+    fetch('https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep')
+      .then(res => res.json())
+      .then(sueños => {
+        sueños.forEach(sueño => {
+          const li = document.createElement('li');
+          li.textContent = `#${sueño.id} - ${sueño.titulo} (Descripcion: ${sueño.descripcion})`;
+          postsList.appendChild(li);
+        });
+      })
+      .catch(err => console.error('Error al cargar posts:', err));
+  </script>
+</body>
+</html>

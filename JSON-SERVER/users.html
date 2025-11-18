@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Usuarios</title>
+</head>
+<body>
+  <h1>Usuarios</h1>
+  <ul id="users-list"></ul>
+
+  <script>
+    const usersList = document.getElementById('users-list');
+
+    fetch('http://localhost:3000/users')
+      .then(res => res.json())
+      .then(users => {
+        users.forEach(user => {
+          const li = document.createElement('li');
+          li.textContent = `#${user.id} - ${user.name} (${user.email})`;
+          usersList.appendChild(li);
+        });
+      })
+      .catch(err => console.error('Error al cargar usuarios:', err));
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Posts con Borrar</title>
+</head>
+<body>
+  <h1>Posts</h1>
+  <ul id="posts-list"></ul>
+
+  <script>
+    const postsList = document.getElementById('posts-list');
+
+    // Función para cargar los posts
+    function loadPosts() {
+      fetch('http://localhost:3000/posts')
+        .then(res => res.json())
+        .then(posts => {
+          postsList.innerHTML = ''; // Limpiar lista antes de cargar
+          posts.forEach(post => {
+            const li = document.createElement('li');
+            li.id = `post-${post.id}`;
+            li.innerHTML = `
+              #${post.id} - ${post.title} (UserId: ${post.userId})
+              <button class="delete-btn" data-id="${post.id}">Borrar</button>
+            `;
+            postsList.appendChild(li);
+          });
+
+          // Añadir eventos a los botones de borrar
+          const deleteButtons = document.querySelectorAll('.delete-btn');
+          deleteButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const postId = button.dataset.id;
+
+              fetch(`http://localhost:3000/posts/${postId}`, {
+                method: 'DELETE'
+              })
+              .then(res => {
+                if (!res.ok) throw new Error('Error al borrar el post');
+                // Borrar el <li> del DOM
+                const liToRemove = document.getElementById(`post-${postId}`);
+                liToRemove.remove();
+                console.log(`Post ${postId} eliminado`);
+              })
+              .catch(err => console.error(err));
+            });
+          });
+        })
+        .catch(err => console.error('Error al cargar posts:', err));
+    }
+
+    // Cargar posts al iniciar
+    loadPosts();
+  </script>
+</body>
+</html>

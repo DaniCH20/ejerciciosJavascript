@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Filtrado de Sueños</title>
+      <style>
+    table {
+      border: 1px solid #000000;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    td{
+         border: 1px solid #000000;
+      padding: 10px;
+
+    }
+    .post input, .post textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+    <h1>Filtrado de Sueños</h1>
+    <div>
+        <h2>Filtrado por tipo</h2>
+        <form id="post-form">
+            <select name="tipo" id="tipo">
+                <option value="Lucido">Lucido</option>
+                <option value="Precognitivo">Precognitivo</option>
+                <option value="Recurrente">Recurrente</option>
+                <option value="Persecucion">Persecucion</option>
+            </select><br><br>
+            <button type="submit">Filtrar</button>
+        </form>
+        <br>
+   
+
+
+    <table id="tabla">
+        <tr>
+            <td>ID</td>
+            <td>Titulo</td>
+            <td>Descripcion</td>
+            <td>Emocion</td>
+            <td>Intensidad</td>
+            <td>Tipo</td>
+            <td>Fecha</td>
+        </tr>
+        
+
+        
+    <script>
+        const form = document.getElementById('post-form');
+        const message = document.getElementById('message');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const tabla = document.getElementById('tabla');
+            const tipo = document.getElementById('tipo').value;
+             tabla.innerHTML = `
+            <tr>
+                <td>ID</td>
+                <td>Titulo</td>
+                <td>Descripcion</td>
+                <td>Emocion</td>
+                <td>Intensidad</td>
+                <td>Tipo</td>
+                <td>Fecha</td>
+            </tr>
+        `;
+            fetch(`https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep/?tipo=${tipo}`)
+                .then(res => res.json())
+                .then(sueños => {
+                    sueños.forEach(sueño => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML+=`<td>${sueño.id}</td>`;
+                        tr.innerHTML+=`<td>${sueño.titulo}</td>`;
+                        tr.innerHTML+=`<td>${sueño.descripcion}</td>`;
+                        tr.innerHTML+=`<td>${sueño.emocion}</td>`;
+                        tr.innerHTML+=`<td>${sueño.intensidad}</td>`;
+                        tr.innerHTML+=`<td><b>${sueño.tipo}</b></td>`;
+                        tr.innerHTML+=`<td>${sueño.fecha}</td>`;
+                        tabla.appendChild(tr);
+                    });
+                })
+                .catch(err => console.error('Error al cargar posts:', err));
+        });
+    </script>
+       
+    </table>
+     </div>
+    <div>   
+        <h2>Filtrado por Titulo</h2>
+          <form id="titulo-form">
+            <label>Título:</label>
+            <input type="text" class="titulo">
+            <button type="submit">Buscar</button>
+        </form><br>
+            <table id="tabla">
+        <tr>
+            <td>ID</td>
+            <td>Titulo</td>
+            <td>Descripcion</td>
+            <td>Emocion</td>
+            <td>Intensidad</td>
+            <td>Tipo</td>
+            <td>Fecha</td>
+        </tr>
+        
+
+        
+    <script>
+        const tituloform = document.getElementById('titulo-form');
+        tituloform.addEventListener('submit', e => {
+            e.preventDefault();
+            const tabla = document.getElementById('tabla');
+            const tipo = document.getElementById('tipo').value;
+             tabla.innerHTML = `
+            <tr>
+                <td>ID</td>
+                <td>Titulo</td>
+                <td>Descripcion</td>
+                <td>Emocion</td>
+                <td>Intensidad</td>
+                <td>Tipo</td>
+                <td>Fecha</td>
+            </tr>
+        `;
+            fetch(`https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep/?tipo=${tipo}`)
+                .then(res => res.json())
+                .then(sueños => {
+                    sueños.forEach(sueño => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML+=`<td>${sueño.id}</td>`;
+                        tr.innerHTML+=`<td>${sueño.titulo}</td>`;
+                        tr.innerHTML+=`<td>${sueño.descripcion}</td>`;
+                        tr.innerHTML+=`<td>${sueño.emocion}</td>`;
+                        tr.innerHTML+=`<td>${sueño.intensidad}</td>`;
+                        tr.innerHTML+=`<td>${sueño.tipo}</td>`;
+                        tr.innerHTML+=`<td>${sueño.fecha}</td>`;
+                        tabla.appendChild(tr);
+                    });
+                })
+                .catch(err => console.error('Error al cargar posts:', err));
+        });
+    </script>
+       
+    </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{
+  "suenos": [
+    {
+      "id": 1,
+      "titulo": "Volando sobre una ciudad futurista",
+      "descripcion": "Podía controlar mi vuelo y veía autos flotando.",
+      "emocion": "Asombro",
+      "intensidad": 4,
+      "tipo": "Lúcido",
+      "fecha": "2025-11-14"
+    },
+    {
+      "id": 2,
+      "titulo": "Perdido en un pasillo infinito",
+      "descripcion": "Era un laberinto sin salida, siempre igual.",
+      "emocion": "Ansiedad",
+      "intensidad": 5,
+      "tipo": "Pesadilla",
+      "fecha": "2025-11-12"
+    },
+    {
+      "id": 3,
+      "titulo": "Conversación con mi mascota",
+      "descripcion": "Mi perro me hablaba como un humano.",
+      "emocion": "Ternura",
+      "intensidad": 2,
+      "tipo": "Surrealista",
+      "fecha": "2025-11-10"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "descripcion": "CPU",
+            "precio": 580.00
+        },
+        {
+            "id": 3,
+            "descripcion": "Teclado",
+            "precio": 10.00
+        },
+        {
+            "id": 7,
+            "descripcion": "Portátil",
+            "precio": 1200.00
+        }
+    ]
+}

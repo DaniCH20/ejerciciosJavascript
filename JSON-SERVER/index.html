@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Posts</title>
+</head>
+<body>
+  <h1>Posts</h1>
+  <ul id="posts-list"></ul>
+
+  <script>
+    const postsList = document.getElementById('posts-list');
+
+    fetch('http://localhost:3000/posts')
+      .then(res => res.json())
+      .then(posts => {
+        posts.forEach(post => {
+          const li = document.createElement('li');
+          li.textContent = `#${post.id} - ${post.title} (UserId: ${post.userId})`;
+          postsList.appendChild(li);
+        });
+      })
+      .catch(err => console.error('Error al cargar posts:', err));
+  </script>
+</body>
+</html>

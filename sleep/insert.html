@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guardar Sueño</title>
+</head>
+<body>
+  <h1>Guardar Nuevo Sueño</h1>
+  <div>
+      <form id="post-form">
+    <input type="text" id="title" placeholder="Título" required><br><br>
+    <textarea id="body" placeholder="Descripcion" required></textarea><br><br>
+    <input type="text" id="emocion" placeholder="Emocion" required><br><br>
+    <input type="number" id="intensidad" placeholder="Intensidad" required><br><br>
+    <select name="tipo" id="tipo">
+      <option value="lucido">Lucido</option>
+      <option value="Precognitivo">Precognitivo</option>
+      <option value="Recurrente">Recurrente</option>
+      <option value="Persecucion">Persecucion</option>
+    </select><br><br>
+    <input type="date" id="fecha" placeholder="fecha" required><br><br>
+    <button type="submit">Crear Sueño</button>
+  </form>
+
+  </div>
+
+
+  <p id="message"></p>
+
+  <script>
+    const form = document.getElementById('post-form');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const titulo = document.getElementById('title').value;
+      const descripcion = document.getElementById('body').value;
+      const emocion = document.getElementById('emocion').value;
+      const intensidad = parseInt(document.getElementById('intensidad').value);
+      const tipo = document.getElementById('tipo').value;
+      const fecha = document.getElementById('fecha').value;
+
+      fetch('https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ titulo, descripcion, emocion,intensidad,tipo,fecha })
+      })
+      .then(res => res.json())
+      .then(data => {
+        message.textContent = `Sueño creado con ID: ${data.id}`;
+        form.reset();
+      })
+      .catch(err => {
+        console.error(err);
+        message.textContent = 'Error al crear el sueño';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Posts</title>
+  <style>
+    .post {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .post input, .post textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gestión de Posts</h1>
+  <div id="posts-container"></div>
+
+  <script>
+    const postsContainer = document.getElementById('posts-container');
+
+    // Cargar posts
+    function loadPosts() {
+      fetch('https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep')
+        .then(res => res.json())
+        .then(posts => {
+          postsContainer.innerHTML = '';
+          posts.forEach(post => {
+            const div = document.createElement('div');
+            div.classList.add('post');
+            div.id = `post-${post.id}`;
+            div.innerHTML = `
+              <strong>ID: ${post.id}</strong><br>
+              <label>Título:</label>
+              <input type="text" class="titulo" value="${post.titulo}">
+              <label>Descripcion:</label>
+              <textarea class="descripcion">${post.descripcion}</textarea>
+              <label>Emocion:</label>
+              <input type="text" class="emocion" value="${post.emocion}">
+              <label>Intensidad:</label>
+              <input type="number" class="intensidad" value="${post.intensidad}">
+              <label>Tipo:</label><br>
+              <select name="tipo" class="tipo">
+                <option value="lucido">Lucido</option>
+                <option value="Precognitivo">Precognitivo</option>
+                <option value="Recurrente">Recurrente</option>
+                <option value="Persecucion">Persecucion</option>
+                </select><br>
+              <label>Fecha:</label><br>
+              <input type="date" class="fecha" value="${post.fecha}">
+              <button class="save-btn">Guardar</button>
+              <button class="delete-btn">Borrar</button>
+              <p class="message"></p>
+            `;
+            postsContainer.appendChild(div);
+          });
+
+          // Añadir eventos a botones
+          const saveButtons = document.querySelectorAll('.save-btn');
+          saveButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const parent = button.parentElement;
+              const sleepId = parent.id.split('-')[1];
+              const titulo = parent.querySelector('.titulo').value;
+              const descripcion = parent.querySelector('.descripcion').value;
+              const intensidad = parseInt(parent.querySelector('.intensidad').value);
+              const emocion = parent.querySelector('.emocion').value;
+              const tipo = parent.querySelector('.tipo').value;
+              const fecha = parent.querySelector('.fecha').value;
+              const message = parent.querySelector('.message');
+
+              fetch(`https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep/${sleepId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ titulo, descripcion, intensidad , emocion, tipo , fecha })
+              })
+              .then(res => {
+                if (!res.ok) throw new Error('Error al actualizar el sueño');
+                return res.json();
+              })
+              .then(data => {
+                message.textContent = 'Sueño actualizado correctamente';
+              })
+              .catch(err => {
+                console.error(err);
+                message.textContent = 'Error al actualizar el sueño';
+              });
+            });
+          });
+
+          const deleteButtons = document.querySelectorAll('.delete-btn');
+          deleteButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const parent = button.parentElement;
+              const sleepId = parent.id.split('-')[1];
+
+              fetch(`https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep/${sleepId}`, {
+                method: 'DELETE'
+              })
+              .then(res => {
+                if (!res.ok) throw new Error('Error al borrar el sueño');
+                parent.remove();
+              })
+              .catch(err => console.error(err));
+            });
+          });
+        })
+        .catch(err => console.error('Error al cargar sueños:', err));
+    }
+
+    // Cargar sueños al iniciar
+    loadPosts();
+  </script>
+</body>
+</html>

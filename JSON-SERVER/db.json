@@ -1,0 +1,106 @@
+{
+  "posts": [
+    {
+      "title": "Primer post",
+      "body": "Hola mundo MUUNDO",
+      "userId": 1,
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "title": "Aprendiendo fetch",
+      "body": "Practicar fetch es divertido",
+      "userId": 2
+    },
+    {
+      "id": "3",
+      "title": "Tercer post",
+      "body": "Más contenido de ejemplo",
+      "userId": 1
+    },
+    {
+      "id": "4",
+      "title": "Post de prueba",
+      "body": "Este post sirve para testing",
+      "userId": 3
+    },
+    {
+      "id": "5",
+      "title": "Último post",
+      "body": "Cerramos los ejemplos",
+      "userId": 2
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Juan",
+      "email": "juan@example.com"
+    },
+    {
+      "id": "2",
+      "name": "María",
+      "email": "maria@example.com"
+    },
+    {
+      "id": "3",
+      "name": "Pedro",
+      "email": "pedro@example.com"
+    },
+    {
+      "id": "4",
+      "name": "Lucía",
+      "email": "lucia@example.com"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "postId": 1,
+      "body": "Muy buen post",
+      "userId": 2
+    },
+    {
+      "id": "2",
+      "postId": 1,
+      "body": "Gracias por compartir",
+      "userId": 3
+    },
+    {
+      "id": "3",
+      "postId": 2,
+      "body": "Aprendí mucho con esto",
+      "userId": 1
+    },
+    {
+      "id": "4",
+      "postId": 3,
+      "body": "Excelente explicación",
+      "userId": 4
+    },
+    {
+      "id": "5",
+      "postId": 4,
+      "body": "Me ha ayudado bastante",
+      "userId": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Programación"
+    },
+    {
+      "id": "2",
+      "name": "Matemáticas"
+    },
+    {
+      "id": "3",
+      "name": "Ciencia"
+    },
+    {
+      "id": "4",
+      "name": "Literatura"
+    }
+  ]
+}

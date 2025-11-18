@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear Post</title>
+</head>
+<body>
+  <h1>Crear un nuevo Post</h1>
+  <form id="post-form">
+    <input type="text" id="title" placeholder="Título" required><br><br>
+    <textarea id="body" placeholder="Contenido" required></textarea><br><br>
+    <input type="number" id="userId" placeholder="UserId" required><br><br>
+    <button type="submit">Crear Post</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    const form = document.getElementById('post-form');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const body = document.getElementById('body').value;
+      const userId = parseInt(document.getElementById('userId').value);
+
+      fetch('http://localhost:3000/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, body, userId })
+      })
+      .then(res => res.json())
+      .then(data => {
+        message.textContent = `Post creado con ID: ${data.id}`;
+        form.reset();
+      })
+      .catch(err => {
+        console.error(err);
+        message.textContent = 'Error al crear el post';
+      });
+    });
+  </script>
+</body>
+</html>

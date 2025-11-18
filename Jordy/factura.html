@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Factura</title>
+</head>
+
+<body>
+    <h3>Nueva línea:</h3>
+    <label>Código de producto: <input type="number" id="productoId"></label><br/><br/>
+    <label>Cantidad: <input type="number" id="cantidad"></label><br/><br/>
+    <button id="enviar">Enviar</button>
+
+    <h3>Factura:</h3>
+    <table id="factura">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Cantidad</th>
+                <th>Producto</th>
+                <th>Precio Unitario</th>
+                <th>Precio Total</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div>
+        <p>Subtotal: <span id="subtotal">0.00</span> €</p>
+        <p>IVA (18%): <span id="iva">0.00</span> €</p>
+        <p><strong>TOTAL: <span id="total">0.00</span> €</strong></p>
+    </div>
+
+    <script>
+        const facturaBody = document.querySelector('#factura tbody');
+        const subtotalSpan = document.getElementById('subtotal');
+        const ivaSpan = document.getElementById('iva');
+        const totalSpan = document.getElementById('total');
+
+        let subtotal = 0;
+
+        document.getElementById('enviar').addEventListener('click', () => {
+            const productoId = parseInt(document.getElementById('productoId').value);
+            let cantidad = parseInt(document.getElementById('cantidad').value);
+            if (!cantidad || cantidad <= 0) cantidad = 1;
+
+            if (!productoId) {
+                alert('Inserta código');
+                return;
+            }
+
+            fetch(`http://localhost:3000/productos/${productoId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const precioTotal = data.precio * cantidad;
+                    subtotal += precioTotal;
+
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                    <td>${data.id}</td>
+                    <td>${cantidad}</td>
+                    <td>${data.descripcion}</td>
+                    <td>${data.precio.toFixed(2)} €</td>
+                    <td>${precioTotal.toFixed(2)} €</td>
+                    `;
+                    facturaBody.appendChild(tr);
+
+                    subtotalSpan.textContent = subtotal.toFixed(2);
+                    const iva = subtotal * 0.18;
+                    ivaSpan.textContent = iva.toFixed(2);
+                    totalSpan.textContent = (subtotal + iva).toFixed(2);
+
+                    document.getElementById('productoId').value = '';
+                    document.getElementById('cantidad').value = '';
+                })
+                .catch(error => {
+                    alert('Error');
+                    console.error(error);
+                });
+        });
+    </script>
+</body>
+
+</html>
