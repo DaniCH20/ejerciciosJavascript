@@ -11,7 +11,7 @@
   <script>
     const postsList = document.getElementById('posts-list');
 
-    fetch('https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep')
+    fetch('http://localhost:3000/suenos')
       .then(res => res.json())
       .then(sueños => {
         sueños.forEach(sueño => {

@@ -26,6 +26,33 @@
       "intensidad": 2,
       "tipo": "Surrealista",
       "fecha": "2025-11-10"
+    },
+    {
+      "id": 4,
+      "titulo": "Soñe que volaba",
+      "descripcion": "Mi cama estaba en el cielo cuando decidi salir empeze a volar , cada vez que movia mis manos me dirigia para distintas direcciones en el cielo.",
+      "emocion": "Felicidad",
+      "intensidad": 5,
+      "tipo": "Lucido",
+      "fecha": "2025-11-10"
+    },
+    {
+      "id": 5,
+      "titulo": "vi una pelicula",
+      "descripcion": "Me encontraba dentro de una pelicula en la que era la victima de un asesinato asi que no tuve mas opcion que correr",
+      "emocion": "Miedo",
+      "intensidad": 9,
+      "tipo": "Persecucion",
+      "fecha": "2025-11-29"
+    },
+    {
+      "id": 6,
+      "titulo": "jajaja",
+      "descripcion": "jajajajaja",
+      "emocion": "risa",
+      "intensidad": 999,
+      "tipo": "Recurrente",
+      "fecha": "2025-10-08"
     }
   ]
 }

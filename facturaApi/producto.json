@@ -1,0 +1,25 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "descripcion": "CPU",
+      "precio": 580,
+      "codigo": 1213,
+      "cantidad": 14
+    },
+    {
+      "id": "2",
+      "descripcion": "Teclado",
+      "precio": 10,
+      "codigo": 2134,
+      "cantidad": 8
+    },
+    {
+      "id": "3",
+      "descripcion": "Portátil",
+      "precio": 1200,
+      "codigo": 5432,
+      "cantidad": 29
+    }
+  ]
+}

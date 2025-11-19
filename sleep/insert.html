@@ -41,7 +41,7 @@
       const tipo = document.getElementById('tipo').value;
       const fecha = document.getElementById('fecha').value;
 
-      fetch('https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep', {
+      fetch('http://localhost:3000/suenos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ titulo, descripcion, emocion,intensidad,tipo,fecha })

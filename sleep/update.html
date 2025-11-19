@@ -25,7 +25,7 @@
 
     // Cargar posts
     function loadPosts() {
-      fetch('https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep')
+      fetch('http://localhost:3000/suenos')
         .then(res => res.json())
         .then(posts => {
           postsContainer.innerHTML = '';
@@ -58,7 +58,6 @@
             `;
             postsContainer.appendChild(div);
           });
-
           // Añadir eventos a botones
           const saveButtons = document.querySelectorAll('.save-btn');
           saveButtons.forEach(button => {
@@ -73,7 +72,7 @@
               const fecha = parent.querySelector('.fecha').value;
               const message = parent.querySelector('.message');
 
-              fetch(`https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep/${sleepId}`, {
+              fetch(`http://localhost:3000/suenos/${sleepId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ titulo, descripcion, intensidad , emocion, tipo , fecha })
@@ -98,7 +97,7 @@
               const parent = button.parentElement;
               const sleepId = parent.id.split('-')[1];
 
-              fetch(`https://691ca3e53aaeed735c91a3e2.mockapi.io/sleep/${sleepId}`, {
+              fetch(`http://localhost:3000/suenos/${sleepId}`, {
                 method: 'DELETE'
               })
               .then(res => {
@@ -115,5 +114,6 @@
     // Cargar sueños al iniciar
     loadPosts();
   </script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>
