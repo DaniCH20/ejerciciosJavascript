@@ -7,15 +7,13 @@ let peliculas = [
   { titulo: "Inception" }
 ];
 const button= document.getElementById("btnMostrar");
-button.addEventListener("click",insertarPeliculas());
  function insertarPeliculas(){
 
     for (let i=0; i<peliculas.length;i++){
       const peli=document.getElementById("listaPeliculas").appendChild(document.createElement("li")).innerText=peliculas[i].titulo
-      peli.documentElement.addEventListener("mouseover",hover(peli));
-      peli.documentElement.addEventListener("mouseout",out(peli));
     }
   }
+
 // Al pulsar el botón debes recorrer el array y mostrar cada título como <li>
 
  
