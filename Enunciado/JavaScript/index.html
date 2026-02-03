@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carné Club Doraemon</title>
+    <script src="js/Socio.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; gap: 20px; padding: 20px; }
+        form { width: 300px; display: flex; flex-direction: column; gap: 10px; }
+        
+        /* Estilos del carné generado */
+        #tarjeta {
+            width: 400px;
+            height: 180px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
+        #tarjeta img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            margin-right: 20px;
+            object-fit: contain;
+        }
+        .error { color: red; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <form id="formularioSocio">
+        <label>Elige tu personaje favorito:</label>
+        <select id="personaje">
+            <option value="Doraemon">Doraemon</option>
+            <option value="Nobita">Nobita</option>
+            <option value="Shizuka">Shizuka</option>
+            <option value="Gigante">Gigante</option>
+            <option value="Suneo">Suneo</option>
+        </select>
+
+        <label>Nombre del socio:</label>
+        <input type="text" id="nombreSocio" placeholder="Tu nombre aquí...">
+        
+        <label>
+            <input type="checkbox" id="esVip"> ¿Socio VIP?
+        </label>
+
+        <button type="button" id="btnGenerar">Generar carné</button>
+        <!-- Área para mostrar mensajes de error -->
+        <div id="mensajeError" class="error"></div>
+    </form>
+    <!-- Área para mostrar el carné generado -->
+    <div id="carne"></div>
+</body>
+</html>

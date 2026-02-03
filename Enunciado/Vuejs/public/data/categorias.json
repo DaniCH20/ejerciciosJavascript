@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "Turismo",
+    "descripcion": "Vehículos compactos y sedanes para uso diario"
+  },
+  {
+    "id": 2,
+    "nombre": "SUV",
+    "descripcion": "Vehículos utilitarios deportivos con mayor espacio"
+  },
+  {
+    "id": 3,
+    "nombre": "Deportivo",
+    "descripcion": "Vehículos de altas prestaciones y diseño deportivo"
+  },
+  {
+    "id": 4,
+    "nombre": "Moto",
+    "descripcion": "Scooters y motocicletas eléctricas urbanas"
+  }
+]

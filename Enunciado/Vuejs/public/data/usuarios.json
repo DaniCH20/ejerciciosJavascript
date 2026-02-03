@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "nombre": "Ane Etxeberria",
+    "apellidos": "Etxeberria Agirre",
+    "email": "ane.etxeberria@txurdinagatech.com",
+    "password": "empleado123",
+    "rol": "empleado",
+    "departamento": "Ventas",
+    "telefono": "+34 678 123 456",
+    "fechaIngreso": "2023-03-15"
+  },
+  {
+    "id": 2,
+    "nombre": "Elena Rodríguez",
+    "apellidos": "Rodríguez Martín",
+    "email": "elena.rodriguez@txurdinagatech.com",
+    "password": "directivo123",
+    "rol": "directivo",
+    "departamento": "Dirección General",
+    "telefono": "+34 678 234 567",
+    "fechaIngreso": "2020-01-10"
+  },
+  {
+    "id": 3,
+    "nombre": "Iker Zabala",
+    "apellidos": "Zabala Uriarte",
+    "email": "iker.zabala@txurdinagatech.com",
+    "password": "empleado123",
+    "rol": "empleado",
+    "departamento": "Logística",
+    "telefono": "+34 678 345 678",
+    "fechaIngreso": "2022-06-20"
+  },
+  {
+    "id": 4,
+    "nombre": "Ainhoa Goikoetxea",
+    "apellidos": "Goikoetxea Aramburu",
+    "email": "ainhoa.goikoetxea@txurdinagatech.com",
+    "password": "directivo123",
+    "rol": "directivo",
+    "departamento": "Operaciones",
+    "telefono": "+34 678 456 789",
+    "fechaIngreso": "2021-09-01"
+  },
+  {
+    "id": 5,
+    "nombre": "Laura Martínez",
+    "apellidos": "Martínez Díaz",
+    "email": "laura.martinez@txurdinagatech.com",
+    "password": "empleado123",
+    "rol": "empleado",
+    "departamento": "Soporte Técnico",
+    "telefono": "+34 678 567 890",
+    "fechaIngreso": "2024-02-14"
+  }
+]
