@@ -1,6 +1,7 @@
 <script setup>
-import { RouterView } from 'vue-router'
-
+import { RouterView } from "vue-router";
+import { useAuthStore } from "@/stores/usuarios";
+const store = useAuthStore();
 </script>
 
 <template>
@@ -15,14 +16,14 @@ import { RouterView } from 'vue-router'
           <div class="nav-links">
             <RouterLink to="/">Inicio</RouterLink>
             <RouterLink to="/vehiculos">Vehículos</RouterLink>
-            <!--
-            <v-if :="usuarioAutenticado" >
-              <RouterLink to="/reservas">Reservas</RouterLink>
-              <p>Hola {{usuarioAutenticado.nombre}}</p>
-            </v-if>
-            -->
             <RouterLink to="/login">Login</RouterLink>
+            <RouterLink v-if="store.usuarioAutenticado" to="/reservas"
+              >Reservas</RouterLink
+            >
             <!-- Los alumnos añadirán más enlaces aquí -->
+            <p v-if="store.usuarioAutenticado">
+              {{ store.usuarioAutenticado.nombre }}
+            </p>
           </div>
         </div>
       </nav>

@@ -29,7 +29,7 @@ const router = createRouter({
       component:LoginView
     },
     {
-      path:'/vehiculosdetalle:id',
+      path:'/vehiculosdetalle/:id',
       name:'vehiculosdetalle',
       component:VehiculosDetalleView
     }
