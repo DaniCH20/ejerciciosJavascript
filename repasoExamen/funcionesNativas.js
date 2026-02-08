@@ -100,3 +100,68 @@ console.log(soloNumeros.test("12345")); // true
 console.log(soloNumeros.test("12a45")); // false
 
 */
+/*
+1. Solo letras (mayúsculas y minúsculas)
+regex
+^[A-Za-z]+$
+Solo letras sin espacios
+
+regex
+^[A-Za-z\s]+$
+Letras con espacios permitidos
+
+2. Letras, números y espacios
+regex
+^[A-Za-z0-9\s]+$
+Letras, números y espacios (sin caracteres especiales)
+
+3. Letras y números (sin espacios)
+regex
+^[A-Za-z0-9]+$
+4. Al menos una mayúscula
+regex
+^(?=.*[A-Z]).+$
+Este es un lookahead que verifica que haya al menos una mayúscula en cualquier posición
+
+5. Email válido
+regex
+^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+6. Contiene caracteres especiales
+regex
+.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?].*
+Verifica que tenga al menos un carácter especial
+
+7. Solo números
+regex
+^[0-9]+$
+8. Contraseña con requisitos específicos
+regex
+^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$
+Mínimo 8 caracteres
+
+Al menos una minúscula
+
+Al menos una mayúscula
+
+Al menos un número
+
+Al menos un carácter especial
+
+9. URL válida
+regex
+^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$
+10. Solo letras con acentos y ñ (español)
+regex
+^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$
+11. Validar teléfono (formato simple)
+regex
+^[\+]?[0-9\s\-\(\)]{7,15}$
+12. Código postal (5 dígitos)
+regex
+^\d{5}$
+
+const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+if (regexEmail.test(email)) {
+    // Email válido
+}
+*/
