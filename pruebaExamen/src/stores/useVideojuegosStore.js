@@ -8,7 +8,7 @@ export const useVideojuegoStore = defineStore("videojuego", () => {
   const favoritos = ref([]);
   const loading = ref(false);
   const error = ref("");
-    const juego=ref(null);
+  const juego = ref(null);
   async function cargarVideojuegos() {
     loading.value = true;
     error.value = null;
@@ -39,8 +39,23 @@ export const useVideojuegoStore = defineStore("videojuego", () => {
       loading.value = false;
     }
   }
+
+  const favoritosDetalles = computed(() => {
+    return favoritos.value.map((favorito) => {
+      // Buscar el vehículo por ID
+      const videojuego = videojuegos.value.find((v) => v.id == favorito.id);
+
+      return {
+        ...favorito, // Mantener todos los datos de la reserva
+        videojuegoTitulo: videojuego ? `${videojuego.titulo}` : "Desconocido",
+        videojuegoDescripcion: videojuego
+          ? videojuego.descripcion
+          : "Sin descripcion",
+      };
+    });
+  });
+
   async function login(email, password) {
-    
     error.value = null;
     const usuarioEncontrado = usuarios.value.find(
       (user) =>
@@ -56,11 +71,9 @@ export const useVideojuegoStore = defineStore("videojuego", () => {
   async function logout() {
     localStorage.clear();
   }
-   async function buscarVideojuego(id) {
-       juego = videojuegos.value.find(j=> j.id==id)
-        
-    
-   }
+  async function buscarVideojuego(id) {
+    juego = videojuegos.value.find((j) => j.id == id);
+  }
 
   return {
     usuarios,
@@ -68,12 +81,10 @@ export const useVideojuegoStore = defineStore("videojuego", () => {
     error,
     loading,
     favoritos,
-  
 
     cargarUsuarios,
     cargarVideojuegos,
     login,
     logout,
-  
   };
 });
