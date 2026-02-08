@@ -21,9 +21,10 @@ onMounted(async () => {
       <label>Password</label>
       <input type="text" id="email" v-model="password" />
       <div v-if="store.loading">Cargando...</div>
-      <div v-if="store.error" class="error">{{ store.error }}</div>
+      <div v-if="store.error" class="error">{{ store.error }}</div><br>
 
       <button type="submit">Acceder</button>
+      <br>
     </form>
     <div>
         <button @click="store.logout()">CerrarSesion</button>

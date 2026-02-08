@@ -8,7 +8,7 @@ export const useVideojuegoStore = defineStore("videojuego", () => {
   const favoritos = ref([]);
   const loading = ref(false);
   const error = ref("");
-
+    const juego=ref(null);
   async function cargarVideojuegos() {
     loading.value = true;
     error.value = null;
@@ -56,6 +56,11 @@ export const useVideojuegoStore = defineStore("videojuego", () => {
   async function logout() {
     localStorage.clear();
   }
+   async function buscarVideojuego(id) {
+       juego = videojuegos.value.find(j=> j.id==id)
+        
+    
+   }
 
   return {
     usuarios,
@@ -63,10 +68,12 @@ export const useVideojuegoStore = defineStore("videojuego", () => {
     error,
     loading,
     favoritos,
+  
 
     cargarUsuarios,
     cargarVideojuegos,
     login,
-    logout
+    logout,
+  
   };
 });

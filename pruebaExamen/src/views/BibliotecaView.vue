@@ -4,9 +4,8 @@ import { ref, onMounted } from "vue";
 
 const store = useVideojuegoStore();
 onMounted(async () => {
-  await store.cargarVideojuegos()
-})
-
+  await store.cargarVideojuegos();
+});
 </script>
 
 <template>
@@ -15,6 +14,13 @@ onMounted(async () => {
     <div v-for="videojuego in store.videojuegos" :key="videojuego.id">
       <h2>{{ videojuego.titulo }}</h2>
       <h2>{{ videojuego.decripcion }}</h2>
+      <RouterLink
+        :to="{
+          name: 'detalles',
+          params: { id: videojuego.id },
+        }"
+        >Ver Detalles</RouterLink>
+       
     </div>
   </div>
 </template>
