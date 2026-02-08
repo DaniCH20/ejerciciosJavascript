@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nombre": "Ana López",
+    "email": "ana@email.com",
+    "password": "gamer123",
+    "rol": "usuario"
+  },
+  {
+    "id": 2,
+    "nombre": "Carlos Ruiz",
+    "email": "carlos@email.com",
+    "password": "videogames",
+    "rol": "admin"
+  }
+]
